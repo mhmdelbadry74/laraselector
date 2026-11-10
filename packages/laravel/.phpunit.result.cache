@@ -1,0 +1,1 @@
+{"version":2,"defects":[],"times":{"BladeLocator\\Tests\\SourceTokenTest::test_rejects_tampered_identifiers":0.023,"BladeLocator\\Tests\\SourceTokenTest::test_token_round_trip":0,"BladeLocator\\Tests\\TokenizerTest::test_marks_opening_lines_and_ignores_raw_blocks":0.001}}

@@ -1,0 +1,10 @@
+.env
+**/.env
+**/vendor/
+**/node_modules/
+**/bootstrap/cache/*.php
+**/storage/framework/*
+!**/storage/framework/.gitignore
+**/storage/logs/*
+!**/storage/logs/.gitignore
+*.log

@@ -1,0 +1,3 @@
+# LaraSelector Privacy Policy
+
+LaraSelector processes page elements and opaque source identifiers only on the browser tab that the developer explicitly activates. It sends same-origin requests to the locally configured Laravel application's `__laraselector` endpoints to resolve a source location and open a local editor URI. It does not operate on other tabs, collect analytics, transmit data to LaraSelector's developer, sell data, or use remote code. The local Laravel application may log requests according to its own configuration. LaraSelector stores no page content or source paths persistently in the extension.

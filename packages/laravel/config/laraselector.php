@@ -1,0 +1,1 @@
+<?php return ['enabled'=>env('LARASELECTOR_ENABLED',false),'environments'=>['local'],'editor'=>env('LARASELECTOR_EDITOR','vscode'),'application_root'=>base_path(),'path_mapping'=>[],'inspect_paths'=>[resource_path('views')],'exclude_paths'=>[resource_path('views/vendor')],'token_ttl_seconds'=>300];

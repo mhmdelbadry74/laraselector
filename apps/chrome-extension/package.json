@@ -1,0 +1,1 @@
+{"private":true,"scripts":{"build":"rm -rf dist && mkdir -p dist/icons && cp src/manifest.json src/background.js src/content.js src/popup.html src/popup.js dist/ && cp src/icons/*.png dist/icons/","package":"npm run build && cd dist && zip -r ../laraselector-chrome-0.1.0-beta.1.zip ."}}

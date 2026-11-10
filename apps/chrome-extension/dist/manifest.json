@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "LaraSelector",
+  "version": "0.1.0",
+  "version_name": "0.1.0 beta 1",
+  "description": "Open local Laravel Blade source from a rendered element.",
+  "icons": {"16":"icons/icon-16.png","32":"icons/icon-32.png","48":"icons/icon-48.png","128":"icons/icon-128.png"},
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {"default_popup": "popup.html", "default_title": "LaraSelector"},
+  "background": {"service_worker": "background.js"},
+  "commands": {"toggle-selector": {"suggested_key": {"default": "Alt+Shift+L"}, "description": "Toggle LaraSelector selection"}}
+}
