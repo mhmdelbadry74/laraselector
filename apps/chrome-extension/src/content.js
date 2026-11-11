@@ -2,9 +2,10 @@
   if (window.__laraselectorLoaded) return;
   window.__laraselectorLoaded = true;
   let active = false, token = null, box, tip, menu;
-  const root = document.createElement('div'); root.id = '__laraselector_root'; root.attachShadow({mode: 'closed'});
-  root.shadowRoot.innerHTML = `<style>.box{position:fixed;z-index:2147483647;pointer-events:none;border:2px solid #5b4bff;background:#5b4bff20}.tip,.menu{position:fixed;z-index:2147483647;background:#141222;color:white;padding:7px 9px;border-radius:6px;font:12px ui-monospace,monospace;max-width:360px}.menu{pointer-events:auto;display:grid;gap:4px}.menu button{color:white;background:#302b52;border:0;border-radius:4px;padding:6px;text-align:left;cursor:pointer}</style><div class=box hidden></div><div class=tip hidden></div><div class=menu hidden></div>`;
-  document.documentElement.append(root); [box, tip, menu] = root.shadowRoot.querySelectorAll('div');
+  const root = document.createElement('div'); root.id = '__laraselector_root';
+  const shadowRoot = root.attachShadow({mode: 'closed'});
+  shadowRoot.innerHTML = `<style>.box{position:fixed;z-index:2147483647;pointer-events:none;border:2px solid #5b4bff;background:#5b4bff20}.tip,.menu{position:fixed;z-index:2147483647;background:#141222;color:white;padding:7px 9px;border-radius:6px;font:12px ui-monospace,monospace;max-width:360px}.menu{pointer-events:auto;display:grid;gap:4px}.menu button{color:white;background:#302b52;border:0;border-radius:4px;padding:6px;text-align:left;cursor:pointer}</style><div class=box hidden></div><div class=tip hidden></div><div class=menu hidden></div>`;
+  document.documentElement.append(root); [box, tip, menu] = shadowRoot.querySelectorAll('div');
   const marker = e => e?.closest?.('[data-laraselector]');
   const api = path => `${location.origin}/__laraselector/${path}`;
   async function handshake() { const r = await fetch(api('handshake'), {method:'POST', credentials:'same-origin', headers:{'X-Requested-With':'LaraSelector'}}); if (!r.ok) throw Error('Local API unavailable'); return r.headers.get('X-LaraSelector-Token'); }
