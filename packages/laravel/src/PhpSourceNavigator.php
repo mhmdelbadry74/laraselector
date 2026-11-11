@@ -6,12 +6,20 @@ use Illuminate\Routing\Route;
 
 final class PhpSourceNavigator
 {
-    public function page(Request $request): ?array { return $this->fromRoute($request->route()); }
+    public function page(Request $request, string $url): ?array
+    {
+        if (!$this->sameOriginUrl($request, $url)) return null;
+        return $this->fromUrl($url, 'GET');
+    }
     public function form(Request $request, array $form): ?array
     {
         $url = (string) ($form['url'] ?? ''); $method = strtoupper((string) ($form['method'] ?? ''));
         if (!in_array($method, ['GET','POST','PUT','PATCH','DELETE','OPTIONS'], true) || !$this->sameOriginUrl($request, $url)) return null;
-        $parts = parse_url($url ?: $request->fullUrl()); if ($parts === false) return null;
+        return $this->fromUrl($url ?: $request->fullUrl(), $method);
+    }
+    private function fromUrl(string $url, string $method): ?array
+    {
+        $parts = parse_url($url); if ($parts === false) return null;
         $path = ($parts['path'] ?? '/') . (isset($parts['query']) ? '?'.$parts['query'] : '');
         try { $synthetic = Request::create($path, $method); $route = app('router')->getRoutes()->match($synthetic); }
         catch (\Throwable) { return null; }
