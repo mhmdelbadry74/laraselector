@@ -20,7 +20,7 @@ final class LaraSelectorMarkupTokenizer
             // An opening tag containing a Blade expression is intentionally left alone: its
             // closing `>` can belong to PHP syntax (for example `$attributes->merge()`).
             if (! $closing && ! $raw && ! str_contains($chunk, '{{') && ! str_contains($chunk, '@') && ! str_starts_with($tag, 'x-') && ! str_starts_with($tag, 'livewire:') && ! in_array($tag, ['script','style','textarea'], true) && ! str_contains($chunk, 'data-laraselector=')) {
-                $chunk = substr($chunk, 0, -1).' data-laraselector="'.$tokens->make($path, $line - substr_count($chunk, "\n")).'">';
+                $chunk = substr($chunk, 0, -1).'<?php if(app(\\LaraSelector\\Activation::class)->active()): ?> data-laraselector="'.$tokens->make($path, $line - substr_count($chunk, "\n")).'"<?php endif; ?>>';
             }
             if (! $closing && in_array($tag, ['script','style','textarea'], true)) $raw = $tag;
             $out .= $chunk;

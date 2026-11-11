@@ -15,3 +15,12 @@
 <p class="conditional">Conditional content is present.</p>
 @endif
 @endsection
+<form method="POST" action="{{ route('orders.store') }}">
+    @csrf
+    <button type="submit">Create order</button>
+</form>
+<form method="POST" action="{{ route('orders.update', ['order' => 1]) }}">
+    @csrf @method('PUT')
+    <button type="submit">Update order</button>
+    <button type="submit" formaction="{{ route('orders.store') }}" formmethod="POST">Create instead</button>
+</form>
