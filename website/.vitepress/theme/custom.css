@@ -18,3 +18,5 @@
 .cta-end{margin-top:64px;text-align:center;padding:40px 20px;border-radius:18px;background:linear-gradient(135deg,#e8432e,#ff8a5c);color:#fff}
 .cta-end h2{margin:0!important;color:#fff;border:0}.cta-end p{color:#ffffffe6}
 .cta-btn{display:inline-block;margin-top:8px;background:#fff;color:#c93420!important;padding:10px 26px;border-radius:10px;font-weight:700;text-decoration:none!important}
+.dl-btn{display:inline-block;background:var(--vp-c-brand-1);color:#fff!important;padding:12px 26px;border-radius:10px;font-weight:700;text-decoration:none!important;margin:8px 0}
+.dl-btn:hover{opacity:.9}

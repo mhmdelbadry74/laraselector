@@ -32,7 +32,7 @@ It only runs in the `local` and `dev` environments. Production is always denied,
 
 ## Install the Chrome extension
 
-Download the ZIP from [Releases](https://github.com/mhmdelbadry74/laraselector/releases), unzip it, open `chrome://extensions`, turn on **Developer mode** and choose **Load unpacked**.
+[Download the extension](/guide/chrome-extension) and load it in Chrome. The page has step-by-step instructions.
 
 ## Use it
 

@@ -54,6 +54,8 @@ LARASELECTOR_EDITOR=vscode   # vscode | cursor | phpstorm
 
 ## إضافة Chrome
 
+[⬇ نزّل أحدث نسخة من الإضافة](https://github.com/mhmdelbadry74/laraselector/releases/latest/download/laraselector-chrome.zip) · [الدليل خطوة بخطوة](https://mhmdelbadry74.github.io/laraselector/ar/guide/chrome-extension)
+
 نزّل ملف ZIP الخاص بالإصدار، وفك الضغط، ثم افتح `chrome://extensions` ← فعّل Developer mode ← **Load unpacked** واختر المجلد.
 
 ## ملاحظات المحررات والتنقل

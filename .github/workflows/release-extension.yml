@@ -1,0 +1,16 @@
+name: release-extension
+on:
+  release:
+    types: [published]
+permissions: {contents: write}
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - working-directory: apps/chrome-extension
+        run: npm run build
+      - working-directory: apps/chrome-extension/dist
+        run: zip -r ../../../laraselector-chrome.zip .
+      - env: {GH_TOKEN: '${{ github.token }}'}
+        run: gh release upload "${{ github.event.release.tag_name }}" laraselector-chrome.zip --clobber

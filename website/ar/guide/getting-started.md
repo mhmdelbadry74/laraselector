@@ -32,7 +32,7 @@ php artisan view:clear
 
 ## تثبيت إضافة Chrome
 
-نزّل ملف ZIP من [Releases](https://github.com/mhmdelbadry74/laraselector/releases)، وفك ضغطه، ثم افتح `chrome://extensions` وفعّل **Developer mode** واختر **Load unpacked**.
+[نزّل الإضافة](/ar/guide/chrome-extension) وحمّلها في Chrome. الصفحة فيها الخطوات بالتفصيل.
 
 ## الاستخدام
 
