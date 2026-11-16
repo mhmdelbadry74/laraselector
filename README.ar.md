@@ -2,6 +2,8 @@
 
 [English](README.md) | **العربية**
 
+📖 **التوثيق:** [العربية](https://mhmdelbadry74.github.io/laraselector/ar/) · [English](https://mhmdelbadry74.github.io/laraselector/) · [Packagist](https://packagist.org/packages/mhmdelbadry74/laraselector-laravel)
+
 LaraSelector أداة للتطوير فقط (Development) لـ Laravel: تختار أي عنصر معروض في Chrome، وتفتح مصدره مباشرة في المحرر: ملف Blade، أو الـ Controller الخاص بالصفحة، أو الـ Controller الخاص بالـ form action. المحررات المدعومة: VS Code وCursor وPhpStorm. تحتاج إلى الـ package (Laravel) وإضافة Chrome معًا.
 
 ## المتطلبات

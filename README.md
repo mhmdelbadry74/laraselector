@@ -4,6 +4,8 @@ LaraSelector is a development-only Laravel tool: choose a rendered Blade element
 
 **English** | [العربية](README.ar.md)
 
+📖 **Documentation:** [English](https://mhmdelbadry74.github.io/laraselector/) · [العربية](https://mhmdelbadry74.github.io/laraselector/ar/) · [Packagist](https://packagist.org/packages/mhmdelbadry74/laraselector-laravel)
+
 ## Requirements
 
 - PHP 8.1+ and Laravel 10, 11 or 12
