@@ -8,7 +8,7 @@
 ### Added
 - `php artisan laraselector:doctor` checks the configuration and explains what is wrong.
 - Tests for every endpoint (activation, origin, session token, editors, path mapping).
-- Laravel Pint code style (`composer lint`, `composer format`).
+- Laravel Pint code style check in CI (`pint.json`).
 
 ### Changed
 - Source code reformatted for readability (no behavior change).

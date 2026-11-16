@@ -24,5 +24,7 @@ jobs:
           composer update --prefer-dist --no-interaction
       - name: Code style
         if: matrix.php == '8.3' && matrix.laravel == '12.*'
-        run: vendor/bin/pint --test
+        run: |
+          composer require --dev laravel/pint --no-interaction
+          vendor/bin/pint --test
       - run: vendor/bin/phpunit
