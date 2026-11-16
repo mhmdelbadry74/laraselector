@@ -12,5 +12,9 @@ jobs:
         run: npm run build
       - working-directory: apps/chrome-extension/dist
         run: zip -r ../../../laraselector-chrome.zip .
+      - working-directory: apps/chrome-extension
+        run: npm run build:firefox
+      - working-directory: apps/chrome-extension/dist-firefox
+        run: zip -r ../../../laraselector-firefox.zip .
       - env: {GH_TOKEN: '${{ github.token }}'}
-        run: gh release upload "${{ github.event.release.tag_name }}" laraselector-chrome.zip --clobber
+        run: gh release upload "${{ github.event.release.tag_name }}" laraselector-chrome.zip laraselector-firefox.zip --clobber

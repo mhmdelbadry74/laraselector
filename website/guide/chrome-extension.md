@@ -16,6 +16,21 @@ Always the latest build. Older versions are on the [Releases page](https://githu
 
 Works in other Chromium browsers too (Edge, Brave, Arc) using their `://extensions` page.
 
+## Firefox
+
+::: warning Experimental
+The Firefox build is new and has not been through a store review yet. Firefox only keeps unsigned add-ons until you restart it.
+:::
+
+<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/releases/latest/download/laraselector-firefox.zip">⬇ Download the Firefox build (.zip)</a>
+
+1. Download the ZIP (you do not need to unzip it).
+2. Open `about:debugging#/runtime/this-firefox`.
+3. Click **Load Temporary Add-on…** and choose the ZIP (or its `manifest.json`).
+4. Use it like in Chrome. Requires Firefox 140 or newer.
+
+The add-on is removed when Firefox restarts. A signed, permanent version will be available once it is published on Firefox Add-ons.
+
 ## Use it
 
 1. Open your local Laravel page (the package must be [enabled](/guide/getting-started)).

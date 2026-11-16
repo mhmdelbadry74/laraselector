@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Experimental Firefox build of the extension (`npm run package:firefox`, attached to releases).
+
 ## 0.1.1 - 2026-11-16
 
 ### Security

@@ -7,3 +7,5 @@ Pairs with the [`mhmdelbadry74/laraselector-laravel`](https://packagist.org/pack
 **Build from source:** `npm run build` (output in `dist/`, load it as an unpacked extension) or `npm run package` to create `laraselector-chrome.zip`.
 
 **Permissions:** only `activeTab`, `scripting` and `storage`. It injects after a popup interaction and only talks to the active page's same-origin `__laraselector` routes.
+
+**Firefox:** `npm run package:firefox` builds `laraselector-firefox.zip` (Firefox 140+). It is experimental and not yet published on Firefox Add-ons.

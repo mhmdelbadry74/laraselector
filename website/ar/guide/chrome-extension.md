@@ -16,6 +16,21 @@
 
 تعمل أيضًا على متصفحات Chromium الأخرى (Edge وBrave وArc) من صفحة `://extensions` الخاصة بها.
 
+## Firefox
+
+::: warning تجريبي
+نسخة Firefox جديدة ولم تمر على مراجعة المتجر بعد. يحتفظ Firefox بالإضافات غير الموقّعة فقط حتى تعيد تشغيله.
+:::
+
+<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/releases/latest/download/laraselector-firefox.zip">⬇ نزّل نسخة Firefox (.zip)</a>
+
+1. نزّل ملف ZIP (لا حاجة لفك ضغطه).
+2. افتح `about:debugging#/runtime/this-firefox`.
+3. اضغط **Load Temporary Add-on…** واختر ملف ZIP (أو ملف `manifest.json`).
+4. استخدمها كما في Chrome. تتطلب Firefox 140 أو أحدث.
+
+تُزال الإضافة عند إعادة تشغيل Firefox. ستتوفر نسخة موقّعة ودائمة بعد نشرها على Firefox Add-ons.
+
 ## الاستخدام
 
 1. افتح صفحة Laravel المحلية (يجب أن يكون الـ package [مفعّلًا](/ar/guide/getting-started)).
