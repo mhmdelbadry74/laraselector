@@ -25,6 +25,14 @@ final class LaraSelectorToken
         return $payload.'.'.hash_hmac('sha256', $payload, $this->key);
     }
 
+    public function relative(string $path): string
+    {
+        $real = realpath($path) ?: $path;
+        $root = realpath($this->config['application_root']) ?: $this->config['application_root'];
+
+        return ltrim(substr($real, strlen($root)), DIRECTORY_SEPARATOR);
+    }
+
     /** @return array{path: string, relative: string, line: int} */
     public function resolve(string $token): array
     {

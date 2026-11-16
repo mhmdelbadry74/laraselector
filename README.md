@@ -32,7 +32,8 @@ Add to `.env`:
 
 ```dotenv
 LARASELECTOR_ENABLED=true
-LARASELECTOR_EDITOR=vscode   # vscode | cursor | phpstorm
+LARASELECTOR_EDITOR=vscode   # vscode | cursor | zed | sublime | phpstorm | …
+LARASELECTOR_EDITING=false   # true lets the extension save text/class/translation edits to your files
 ```
 
 Then clear compiled views: `php artisan view:clear`.
@@ -50,6 +51,11 @@ Config file `config/laraselector.php`:
 | `php_inspect_paths` | `app/`, `routes/` | PHP directories controllers may be opened from. |
 | `exclude_paths` | `resources/views/vendor` | Excluded Blade paths. |
 | `token_ttl_seconds` | `300` | Lifetime of source tokens. |
+| `editing` | `false` | Allow saving text/class/translation edits to source (`LARASELECTOR_EDITING`). |
+| `lang_paths` | `lang/`, `resources/lang` | Where translations are searched. |
+| `css_paths` | `resources/css`, `sass`, `scss`, `less`, `public/css` | Where CSS classes are traced. |
+| `inertia_paths` | `resources/js/Pages`, … | Where Inertia page components live. |
+| `max_renders` / `nplus1_threshold` | `400` / `3` | Inspector limits. |
 
 ## Usage
 
@@ -57,15 +63,34 @@ Config file `config/laraselector.php`:
 2. Open LaraSelector and click **Start selecting**.
 3. Hover an element, click it, and choose Blade / controller / form action. Press Escape to stop.
 
+## What you can do
+
+Click an element, then use the panel tabs:
+
+| Tab | What it gives you |
+| --- | --- |
+| **Open** | Blade file, page controller, form action, Livewire class / `render()` / action. |
+| **Data** | The variables passed to that view (secrets redacted). |
+| **Stack** | Render stack page → layout → partial with timings. |
+| **Queries** | Queries run by the view, with N+1 warnings. |
+| **Route** | Name, methods, middleware, FormRequest and its rules. |
+| **Text** | Matching `lang/` keys; edit text or translations and save to source. |
+| **CSS** | Which stylesheet defines each class; edit the class list and save. |
+| **Livewire / Alpine** | Component, public properties, `x-data`. |
+| **Report** | Element screenshot + Markdown / Jira bug description. |
+| **Compare** | Pin an element and diff it against another one, even on another page. |
+
+Also: **Page info** (route, totals, N+1, Inertia component and props), a **render heatmap**, **Shift+click** multi-select with *Open all* / *Compare*. Editing is off until `LARASELECTOR_EDITING=true`. Run `php artisan view:clear` once after upgrading.
+
 ## Editors and navigation notes
 
-VS Code/Cursor use the `vscode://file` and `cursor://file` handlers. PhpStorm uses `phpstorm://open?file=…&line=…`; register JetBrains' URL handler/launcher if the browser reports an unregistered protocol. The extension shows only project-relative paths and opens the editor only after you pick an action.
+Supported editors: `vscode`, `vscode-insiders`, `vscodium`, `cursor`, `windsurf`, `zed`, `sublime`, `phpstorm`, `idea`, `webstorm`, `textmate`, `nova`. VS Code-family editors use `<scheme>://file/…`, Zed `zed://file/…`, Sublime `subl://open`, JetBrains `<ide>://open?file=…&line=…`; register the editor's URL handler/launcher if the browser reports an unregistered protocol. Neovim has no URL scheme, so it cannot be targeted without a custom handler. Running in Docker/Sail/WSL? Set `path_mapping`, or type the project path in the extension popup ("Project path on this machine"). The extension shows only project-relative paths and opens the editor only after you pick an action.
 
 Form navigation supports same-origin relative/absolute actions, implicit action, GET/POST, `_method` spoofing and submit-button `formaction`/`formmethod`. Dynamic JavaScript destinations and external origins are unsupported.
 
 ## Security
 
-Development only. The package is gated at request/render time, so cached views stay inert once disabled or when the environment changes. Endpoints return 404 when inactive, require same-origin and a session token, never dispatch routes, and validate real paths (including symlinks) inside the allowlist.
+Development only. The package is gated at request/render time, so cached views stay inert once disabled or when the environment changes. Endpoints return 404 when inactive, require same-origin and a session token, never dispatch routes, and validate real paths (including symlinks) inside the allowlist. View data is redacted for keys such as `password`, `token`, `secret` and `api_key` and only travels between your local app and your browser. Writing to files is a separate opt-in (`LARASELECTOR_EDITING`), limited to Blade and lang files, refuses ambiguous edits, and every edit can be undone.
 
 ## Troubleshooting
 
@@ -94,7 +119,7 @@ cd ../.. && composer install && composer test
 
 ## Compatibility and limitations
 
-LaraSelector marks static HTML opening tags while Blade still has original source lines. It maps layouts, includes, loops, conditionals, rendered component views, and slot body content. It skips malformed markup, dynamic tags containing Blade expressions, component invocation tags, arbitrary Shadow DOM, and cross-origin iframes. Page controller navigation supports controllers, invokable controllers, inherited methods, and closures inside allowed paths. Livewire action navigation is not currently exposed: Livewire component/action metadata varies by version and browser-provided class names are never trusted; all non-Livewire navigation continues to work when it is installed.
+LaraSelector marks static HTML opening tags while Blade still has original source lines. It maps layouts, includes, loops, conditionals, rendered component views, and slot body content. It skips malformed markup, dynamic tags containing Blade expressions, component invocation tags, arbitrary Shadow DOM, and cross-origin iframes. Page controller navigation supports controllers, invokable controllers, inherited methods, and closures inside allowed paths. Livewire components and actions are resolved only through Livewire's own registry; browser-provided class names are never trusted.
 
 ## Privacy and support
 

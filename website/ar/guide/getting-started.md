@@ -4,7 +4,7 @@
 
 - PHP 8.1 أو أحدث، وLaravel 10 أو 11 أو 12
 - إضافة LaraSelector لـ Chrome
-- VS Code أو Cursor أو PhpStorm
+- VS Code أو Cursor أو Zed أو Sublime Text أو PhpStorm أو أي [محرر مدعوم](/ar/guide/configuration)
 
 ## تثبيت الـ package
 
@@ -19,7 +19,8 @@ php artisan vendor:publish --tag=laraselector-config
 
 ```dotenv
 LARASELECTOR_ENABLED=true
-LARASELECTOR_EDITOR=vscode   # vscode | cursor | phpstorm
+LARASELECTOR_EDITOR=vscode   # vscode | cursor | zed | sublime | phpstorm | …
+LARASELECTOR_EDITING=false   # true يسمح بحفظ تعديلات النص والـ classes في ملفاتك
 ```
 
 ```sh
@@ -38,5 +39,7 @@ php artisan view:clear
 
 1. افتح صفحة Laravel المحلية.
 2. افتح LaraSelector من شريط الأدوات واضغط **Start selecting**.
-3. مرّر على أي عنصر واضغط عليه، ثم اختر Blade أو controller الصفحة أو form action.
-4. سيفتح محررك عند السطر المقصود. اضغط **Escape** لإيقاف التحديد.
+3. مرّر على أي عنصر واضغط عليه. ستفتح لوحة: افتح ملف Blade أو الـ controller أو form action، أو شاهد بياناته واستعلاماته والـ route وغيرها (انظر [المميزات](/ar/guide/features)).
+4. سيفتح محررك عند السطر المقصود. اضغط **Escape** لإغلاق اللوحة أو إيقاف التحديد.
+
+تحدّث من 0.1؟ نفّذ `composer update` و`php artisan view:clear` مرة واحدة وحدّث الإضافة لتظهر لوحة التفاصيل.

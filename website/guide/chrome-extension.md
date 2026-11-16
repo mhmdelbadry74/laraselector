@@ -35,12 +35,15 @@ The add-on is removed when Firefox restarts. A signed, permanent version will be
 
 1. Open your local Laravel page (the package must be [enabled](/guide/getting-started)).
 2. Click the LaraSelector icon, then **Start selecting**.
-3. Hover an element and click it, then choose Blade, page controller or form action.
-4. Press **Escape** to stop.
+3. Hover an element and click it to open the details panel ([Features](/guide/features)). **Shift+click** selects several elements.
+4. **Page info** and **Heatmap** in the popup show page-level data and render times.
+5. Press **Escape** to close the panel or stop.
+
+Using Docker, Sail or WSL? Type your project path into **Project path on this machine** in the popup so editor links open on your computer.
 
 ## Permissions
 
-Only `activeTab`, `scripting` and `storage`. It injects after you interact with the popup and talks only to the active page's same-origin `__laraselector` routes.
+Only `activeTab`, `scripting` and `storage`. Screenshots use `activeTab` and stay on your machine. It injects after you interact with the popup and talks only to the active page's same-origin `__laraselector` routes.
 
 ## Updating
 

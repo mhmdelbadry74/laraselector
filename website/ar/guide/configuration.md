@@ -6,13 +6,18 @@
 | --- | --- | --- |
 | `enabled` | `false` | المفتاح الرئيسي للتشغيل، ويتحكم فيه `LARASELECTOR_ENABLED`. |
 | `environments` | `local`, `dev` | البيئات المسموح بالتشغيل فيها. بيئة `production` مرفوضة دائمًا. |
-| `editor` | `vscode` | المحرر المستخدم في الرابط: `vscode` أو `cursor` أو `phpstorm`. |
+| `editor` | `vscode` | المحرر المستخدم في الرابط: `vscode` أو `cursor` أو `zed` أو `sublime` أو `phpstorm` وغيرها (انظر القائمة الكاملة في README). |
 | `application_root` | `base_path()` | الجذر المستخدم لعرض المسارات نسبةً إلى المشروع. |
 | `path_mapping` | `[]` | ربط مسارات السيرفر بمسارات جهازك. |
 | `inspect_paths` | `resources/views` | مجلدات Blade التي يتم تعليمها. |
 | `php_inspect_paths` | `app/`, `routes/` | مجلدات PHP التي يُسمح بفتح الـ controllers منها. |
 | `exclude_paths` | `resources/views/vendor` | مسارات Blade المستبعدة. |
 | `token_ttl_seconds` | `300` | مدة صلاحية الـ token بالثواني. |
+| `editing` | `false` | السماح بحفظ تعديلات النص والـ classes والترجمة في الملفات (`LARASELECTOR_EDITING`). |
+| `lang_paths` | `lang/`, `resources/lang` | أماكن البحث عن الترجمات. |
+| `css_paths` | `resources/css`, `sass`, `scss`, `less`, `public/css` | أماكن تتبّع الـ CSS classes. |
+| `inertia_paths` | `resources/js/Pages`, … | أماكن صفحات Inertia. |
+| `max_renders` / `nplus1_threshold` | `400` / `3` | حدود الـ inspector. |
 
 ## Docker والبيئات البعيدة
 

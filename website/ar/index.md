@@ -74,6 +74,6 @@ php artisan view:clear
 
 **هل يعمل مع Docker؟** نعم، اضبط `path_mapping` لتحويل مسارات الحاوية إلى مسارات جهازك.
 
-**وماذا عن Livewire؟** يعمل التنقل لـ Blade والـ controllers بجانب Livewire. التنقل لإجراءات Livewire غير متاح حاليًا.
+**وماذا عن Livewire؟** مدعوم: افتح الـ class و`render()` والـ action تحت المؤشر، واطّلع على الـ properties العامة.
 
 <div class="cta-end"><h2>جاهز للتجربة؟</h2><p>ثبّت الـ package وانتقل من أي عنصر إلى كودك.</p><a class="cta-btn" href="/laraselector/ar/guide/getting-started">ابدأ الآن</a></div>

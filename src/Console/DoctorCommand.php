@@ -4,6 +4,7 @@ namespace LaraSelector\Console;
 
 use Illuminate\Console\Command;
 use LaraSelector\Activation;
+use LaraSelector\Support\EditorLinks;
 
 final class DoctorCommand extends Command
 {
@@ -30,7 +31,7 @@ final class DoctorCommand extends Command
         $check($env !== 'production', "Environment is not production ({$env})", 'LaraSelector is always denied in production.');
         $check(in_array($env, (array) config('laraselector.environments', []), true), "Environment '{$env}' is allowed", 'Add it to "environments" in config/laraselector.php');
         $check($activation->active(), 'LaraSelector is active');
-        $check(in_array(config('laraselector.editor'), ['vscode', 'cursor', 'phpstorm'], true), 'Editor is supported ('.config('laraselector.editor').')', 'Use vscode, cursor or phpstorm.');
+        $check(in_array(config('laraselector.editor'), EditorLinks::EDITORS, true), 'Editor is supported ('.config('laraselector.editor').')', 'Use one of: '.implode(', ', EditorLinks::EDITORS).'.');
         $check((string) config('app.key') !== '', 'APP_KEY is set', 'Run php artisan key:generate');
 
         foreach ((array) config('laraselector.inspect_paths', []) as $path) {
@@ -38,6 +39,11 @@ final class DoctorCommand extends Command
         }
         foreach ((array) config('laraselector.php_inspect_paths', []) as $path) {
             $check(is_dir($path), "PHP path exists: {$path}", 'Fix php_inspect_paths in config/laraselector.php');
+        }
+
+        $this->line(config('laraselector.editing') ? '<comment>!</comment> Editing is ON: the extension may write to your Blade and lang files.' : '<info>✔</info> Editing is off (set LARASELECTOR_EDITING=true to enable in-page edits)');
+        if (is_file('/.dockerenv') && (array) config('laraselector.path_mapping', []) === []) {
+            $this->line('<comment>!</comment> Running in a container: set path_mapping or the "Project path on this machine" option in the extension so editor links open on your host.');
         }
 
         $compiled = (string) config('view.compiled');

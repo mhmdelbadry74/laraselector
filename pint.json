@@ -1,1 +1,1 @@
-{"preset": "laravel", "exclude": ["examples", "website", "apps", "vendor"]}
+{"preset": "laravel", "exclude": ["examples", "website", "apps", "vendor"], "notPath": ["tests/fixtures/lang/en/messages.php"]}

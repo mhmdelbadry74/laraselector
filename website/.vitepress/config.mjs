@@ -4,6 +4,7 @@ const url = 'https://mhmdelbadry74.github.io/laraselector/'
 const sidebar = (p, t) => [{ text: t.group, items: [
   { text: t.start, link: `${p}/guide/getting-started` },
   { text: t.ext, link: `${p}/guide/chrome-extension` },
+  { text: t.feat, link: `${p}/guide/features` },
   { text: t.config, link: `${p}/guide/configuration` },
   { text: t.sec, link: `${p}/guide/security` },
   { text: t.help, link: `${p}/guide/troubleshooting` } ] }]
@@ -19,10 +20,10 @@ export default defineConfig({
   locales: {
     root: { label: 'English', lang: 'en', description: 'Click an element in the browser, open its Blade file or controller in your editor.',
       themeConfig: { nav: [{ text: 'Guide', link: '/guide/getting-started' }, { text: 'Download extension', link: '/guide/chrome-extension' }, { text: 'Packagist', link: 'https://packagist.org/packages/mhmdelbadry74/laraselector-laravel' }],
-        sidebar: sidebar('', { group: 'Guide', start: 'Getting started', ext: 'Chrome extension', config: 'Configuration', sec: 'Security', help: 'Troubleshooting' }) } },
+        sidebar: sidebar('', { group: 'Guide', start: 'Getting started', ext: 'Chrome extension', feat: 'Features', config: 'Configuration', sec: 'Security', help: 'Troubleshooting' }) } },
     ar: { label: 'العربية', lang: 'ar', dir: 'rtl', link: '/ar/', description: 'اضغط على عنصر في المتصفح وافتح ملف Blade أو الـ controller الخاص به في محررك.',
       themeConfig: { nav: [{ text: 'الدليل', link: '/ar/guide/getting-started' }, { text: 'تحميل الإضافة', link: '/ar/guide/chrome-extension' }, { text: 'Packagist', link: 'https://packagist.org/packages/mhmdelbadry74/laraselector-laravel' }],
-        sidebar: sidebar('/ar', { group: 'الدليل', start: 'البدء السريع', ext: 'إضافة Chrome', config: 'الإعدادات', sec: 'الأمان', help: 'حل المشاكل' }),
+        sidebar: sidebar('/ar', { group: 'الدليل', start: 'البدء السريع', ext: 'إضافة Chrome', feat: 'المميزات', config: 'الإعدادات', sec: 'الأمان', help: 'حل المشاكل' }),
         outlineTitle: 'في هذه الصفحة', docFooter: { prev: 'السابق', next: 'التالي' }, sidebarMenuLabel: 'القائمة', returnToTopLabel: 'للأعلى', darkModeSwitchLabel: 'المظهر', langMenuLabel: 'اللغة',
         search: { provider: 'local' } } } }
 })

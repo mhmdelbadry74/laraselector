@@ -1,1 +1,28 @@
-<!doctype html><meta charset="utf-8"><title>LaraSelector</title><style>body{width:260px;padding:14px;background:#141222;color:#f5f4ff;font:14px system-ui}button{width:100%;padding:9px;border:0;border-radius:6px;background:#7868ff;color:#fff;font-weight:600}#state{color:#c5c1df;margin:10px 0}</style><h3>LaraSelector</h3><div id=state>Checking page…</div><button id=toggle disabled>Start selecting</button><script src="popup.js"></script>
+<!doctype html>
+<meta charset="utf-8">
+<title>LaraSelector</title>
+<style>
+  body{width:290px;padding:14px;background:#141222;color:#f5f4ff;font:13px system-ui}
+  h3{margin:0 0 4px}
+  button{width:100%;padding:9px;border:0;border-radius:6px;background:#7868ff;color:#fff;font-weight:600;cursor:pointer;margin-top:6px}
+  button.secondary{background:#302b52}
+  button:disabled{opacity:.45;cursor:default}
+  #state{color:#c5c1df;margin:6px 0 8px}
+  .hint{color:#9a96bd;font-size:11px;margin-top:4px}
+  label{display:block;margin-top:12px;color:#c5c1df;font-size:12px}
+  input{width:100%;margin-top:4px;padding:6px;border-radius:5px;border:1px solid #3a3566;background:#0d0b1a;color:#fff;font:11px ui-monospace,monospace;box-sizing:border-box}
+  .row{display:flex;gap:6px}
+</style>
+<h3>LaraSelector</h3>
+<div id="state">Checking page…</div>
+<button id="toggle" disabled>Start selecting</button>
+<div class="row">
+  <button id="page" class="secondary" disabled>Page info</button>
+  <button id="heat" class="secondary" disabled>Heatmap</button>
+</div>
+<div class="hint" id="hint"></div>
+<label>Project path on this machine <span class="hint">(Docker / Sail / WSL only)</span>
+  <input id="root" placeholder="/Users/me/code/my-app" spellcheck="false">
+</label>
+<div class="hint">Shift+click selects several elements. Esc closes the panel.</div>
+<script src="popup.js"></script>

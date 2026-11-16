@@ -4,6 +4,8 @@ namespace LaraSelector;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Livewire\LivewireComponentsFinder;
+use Livewire\Mechanisms\ComponentRegistry;
 
 final class PhpSourceNavigator
 {
@@ -27,12 +29,28 @@ final class PhpSourceNavigator
         return $this->fromUrl($url ?: $request->fullUrl(), $method);
     }
 
+    public function pageRoute(Request $request, string $url): ?Route
+    {
+        return $this->sameOriginUrl($request, $url) ? $this->matchRoute($url ?: $request->fullUrl(), 'GET') : null;
+    }
+
+    public function formRoute(Request $request, array $form): ?Route
+    {
+        $url = (string) ($form['url'] ?? '');
+        $method = strtoupper((string) ($form['method'] ?? ''));
+        if (! in_array($method, ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'], true) || ! $this->sameOriginUrl($request, $url)) {
+            return null;
+        }
+
+        return $this->matchRoute($url ?: $request->fullUrl(), $method);
+    }
+
     /**
      * Resolve a Livewire component class (and optionally one of its public methods).
      * The component name and action come from the browser, so they are validated,
      * resolved only through Livewire's own registry and checked against php_inspect_paths.
      *
-     * @return array{component?: array, action?: array}
+     * @return array{component?: array, action?: array, render?: array}
      */
     public function livewire(array $info): array
     {
@@ -53,6 +71,13 @@ final class PhpSourceNavigator
                 return [];
             }
             $out['component'] = ['path' => $file, 'relative' => $this->relative($file), 'line' => $ref->getStartLine()];
+            if ($ref->hasMethod('render')) {
+                $r = $ref->getMethod('render');
+                $rf = $r->getFileName();
+                if ($rf && $this->allowed($rf)) {
+                    $out['render'] = ['path' => $rf, 'relative' => $this->relative($rf), 'line' => $r->getStartLine()];
+                }
+            }
             if (preg_match('/^[A-Za-z_]\w*$/', $action) === 1 && $ref->hasMethod($action)) {
                 $m = $ref->getMethod($action);
                 $mf = $m->getFileName();
@@ -71,11 +96,11 @@ final class PhpSourceNavigator
     {
         $resolvers = [
             // Livewire 3
-            fn () => app(\Livewire\Mechanisms\ComponentRegistry::class)->getClass($name),
+            fn () => app(ComponentRegistry::class)->getClass($name),
             // Livewire 4
             fn () => app('livewire.finder')->resolveClassComponentClassName($name),
             // Livewire 2
-            fn () => app(\Livewire\LivewireComponentsFinder::class)->find($name),
+            fn () => app(LivewireComponentsFinder::class)->find($name),
         ];
         foreach ($resolvers as $resolve) {
             try {
@@ -92,19 +117,39 @@ final class PhpSourceNavigator
 
     private function fromUrl(string $url, string $method): ?array
     {
+        return $this->fromRoute($this->matchRoute($url, $method));
+    }
+
+    public function matchRoute(string $url, string $method): ?Route
+    {
         $parts = parse_url($url);
         if ($parts === false) {
             return null;
         }
         $path = ($parts['path'] ?? '/').(isset($parts['query']) ? '?'.$parts['query'] : '');
         try {
-            $synthetic = Request::create($path, $method);
-            $route = app('router')->getRoutes()->match($synthetic);
+            return app('router')->getRoutes()->match(Request::create($path, $method));
         } catch (\Throwable) {
             return null;
         }
+    }
 
-        return $this->fromRoute($route);
+    /** Build a source location for a file found by a server-side scan, if it is inside the project. */
+    public function locate(string $file, int $line): ?array
+    {
+        $real = realpath($file);
+        $root = realpath((string) config('laraselector.application_root', base_path()));
+        if (! $real || ! $root || ! str_starts_with($real, $root.DIRECTORY_SEPARATOR)) {
+            return null;
+        }
+
+        return ['path' => $real, 'relative' => ltrim(substr($real, strlen($root)), DIRECTORY_SEPARATOR), 'line' => max(1, $line)];
+    }
+
+    /** Like locate(), but only for files in php_inspect_paths. */
+    public function locatePhp(string $file, int $line): ?array
+    {
+        return $this->allowed($file) ? $this->locate($file, $line) : null;
     }
 
     private function sameOriginUrl(Request $request, string $url): bool

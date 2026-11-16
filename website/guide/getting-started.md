@@ -4,7 +4,7 @@
 
 - PHP 8.1+ and Laravel 10, 11 or 12
 - The LaraSelector Chrome extension
-- VS Code, Cursor or PhpStorm
+- VS Code, Cursor, Zed, Sublime Text, PhpStorm or another [supported editor](/guide/configuration#editors)
 
 ## Install the package
 
@@ -19,7 +19,8 @@ The service provider is auto-discovered.
 
 ```dotenv
 LARASELECTOR_ENABLED=true
-LARASELECTOR_EDITOR=vscode   # vscode | cursor | phpstorm
+LARASELECTOR_EDITOR=vscode   # vscode | cursor | zed | sublime | phpstorm | …
+LARASELECTOR_EDITING=false   # true lets you save text/class edits to your files
 ```
 
 ```sh
@@ -38,5 +39,7 @@ It only runs in the `local` and `dev` environments. Production is always denied,
 
 1. Open your local Laravel page.
 2. Open LaraSelector from the toolbar and click **Start selecting**.
-3. Hover an element and click it, then choose Blade, page controller or form action.
-4. Your editor opens at the exact line. Press **Escape** to stop selecting.
+3. Hover an element and click it. A panel opens: open its Blade file, controller or form action, or look at its data, queries, route and more (see [Features](/guide/features)).
+4. Your editor opens at the exact line. Press **Escape** to close the panel or stop selecting.
+
+Upgrading from 0.1? Run `composer update` and `php artisan view:clear` once, and update the extension, to get the details panel.

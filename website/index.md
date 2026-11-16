@@ -74,6 +74,6 @@ Then load the Chrome extension and start selecting. The [full guide](/guide/gett
 
 **Does it work in Docker?** Yes, set `path_mapping` to translate container paths to your local paths.
 
-**Livewire?** Blade and controller navigation work alongside Livewire. Livewire action navigation is not available yet.
+**Livewire?** Supported: open the component class, its `render()`, the action under the cursor, and inspect its public properties.
 
 <div class="cta-end"><h2>Ready to try it?</h2><p>Install the package and jump from any element to your code.</p><a class="cta-btn" href="/laraselector/guide/getting-started">Get started</a></div>

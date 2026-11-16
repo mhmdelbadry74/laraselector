@@ -35,12 +35,15 @@
 
 1. افتح صفحة Laravel المحلية (يجب أن يكون الـ package [مفعّلًا](/ar/guide/getting-started)).
 2. اضغط أيقونة LaraSelector ثم **Start selecting**.
-3. مرّر على أي عنصر واضغط عليه، ثم اختر Blade أو controller الصفحة أو form action.
-4. اضغط **Escape** للإيقاف.
+3. مرّر على أي عنصر واضغط عليه لتفتح لوحة التفاصيل ([المميزات](/ar/guide/features)). **Shift+click** يختار عدة عناصر.
+4. **Page info** و**Heatmap** في النافذة المنبثقة يعرضان بيانات الصفحة وأوقات الـ render.
+5. اضغط **Escape** لإغلاق اللوحة أو الإيقاف.
+
+تستخدم Docker أو Sail أو WSL؟ اكتب مسار مشروعك في خانة **Project path on this machine** حتى تفتح روابط المحرر على جهازك.
 
 ## الصلاحيات
 
-فقط `activeTab` و`scripting` و`storage`. تعمل بعد تفاعلك مع النافذة المنبثقة، وتتواصل فقط مع مسارات `__laraselector` في نفس الـ origin للصفحة الحالية.
+فقط `activeTab` و`scripting` و`storage`. لقطات الشاشة تستخدم `activeTab` وتبقى على جهازك. تعمل بعد تفاعلك مع النافذة المنبثقة، وتتواصل فقط مع مسارات `__laraselector` في نفس الـ origin للصفحة الحالية.
 
 ## التحديث
 

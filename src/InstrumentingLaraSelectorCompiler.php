@@ -23,10 +23,21 @@ final class InstrumentingLaraSelectorCompiler extends BladeCompiler
 
     public function compileString($value): string
     {
-        if ($this->sourcePath && $this->tokens->isInspectable($this->sourcePath)) {
+        $inspectable = $this->sourcePath && $this->tokens->isInspectable($this->sourcePath);
+
+        if ($inspectable) {
             $value = LaraSelectorMarkupTokenizer::instrument($value, $this->sourcePath, $this->tokens);
         }
 
-        return parent::compileString($value);
+        $compiled = parent::compileString($value);
+
+        if (! $inspectable) {
+            return $compiled;
+        }
+
+        // Runtime no-ops unless LaraSelector is active; records nesting, timing and data for the inspector.
+        $path = var_export($this->tokens->relative($this->sourcePath), true);
+
+        return '<?php $__lsr = \\LaraSelector\\RenderRecorder::begin('.$path.', get_defined_vars()); ?>'.$compiled.'<?php \\LaraSelector\\RenderRecorder::end($__lsr); ?>';
     }
 }

@@ -13,7 +13,7 @@ final class EndpointsTest extends TestCase
 
     public function test_capabilities_are_available_when_active(): void
     {
-        $this->getJson('/__laraselector/capabilities')->assertOk()->assertJsonPath('protocol', 2);
+        $this->getJson('/__laraselector/capabilities')->assertOk()->assertJsonPath('protocol', 3);
     }
 
     public function test_every_endpoint_is_404_when_disabled(): void
