@@ -17,12 +17,7 @@ composer require --dev mhmdelbadry74/laraselector-laravel
 php artisan vendor:publish --tag=laraselector-config
 ```
 
-The service provider is auto-discovered. Until the package is listed on Packagist, add the repository first:
-
-```sh
-composer config repositories.laraselector vcs https://github.com/mhmdelbadry74/laraselector.git
-composer require --dev mhmdelbadry74/laraselector-laravel:dev-main
-```
+The service provider is auto-discovered.
 
 ## Configuration
 
