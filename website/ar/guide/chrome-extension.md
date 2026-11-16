@@ -2,7 +2,7 @@
 
 تتواصل الإضافة مع الـ package الشغال في تطبيق Laravel المحلي. ثبّت الاثنين معًا.
 
-<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/releases/latest/download/laraselector-chrome.zip">⬇ نزّل الإضافة (.zip)</a>
+<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/raw/main/apps/chrome-extension/laraselector-chrome.zip">⬇ نزّل الإضافة (.zip)</a>
 
 الرابط دائمًا لأحدث نسخة. النسخ القديمة في [صفحة Releases](https://github.com/mhmdelbadry74/laraselector/releases).
 
@@ -22,7 +22,7 @@
 نسخة Firefox جديدة ولم تمر على مراجعة المتجر بعد. يحتفظ Firefox بالإضافات غير الموقّعة فقط حتى تعيد تشغيله.
 :::
 
-<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/releases/latest/download/laraselector-firefox.zip">⬇ نزّل نسخة Firefox (.zip)</a>
+<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/raw/main/apps/chrome-extension/laraselector-firefox.zip">⬇ نزّل نسخة Firefox (.zip)</a>
 
 1. نزّل ملف ZIP (لا حاجة لفك ضغطه).
 2. افتح `about:debugging#/runtime/this-firefox`.

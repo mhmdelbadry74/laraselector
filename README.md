@@ -79,7 +79,7 @@ composer install && composer test
 
 ## Chrome extension
 
-[⬇ Download the latest extension ZIP](https://github.com/mhmdelbadry74/laraselector/releases/latest/download/laraselector-chrome.zip) · [Step-by-step guide](https://mhmdelbadry74.github.io/laraselector/guide/chrome-extension)
+[⬇ Download the latest extension ZIP](https://github.com/mhmdelbadry74/laraselector/raw/main/apps/chrome-extension/laraselector-chrome.zip) · [Step-by-step guide](https://mhmdelbadry74.github.io/laraselector/guide/chrome-extension)
 
 Download the release ZIP, unzip it, and load the extracted directory from `chrome://extensions` → Developer mode → Load unpacked. On an enabled local Laravel page, open LaraSelector, click **Start selecting**, hover a marked element, click to open source, and press Escape to stop.
 

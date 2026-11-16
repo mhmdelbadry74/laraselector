@@ -2,7 +2,7 @@
 
 The extension talks to the package running in your local Laravel app. Install both.
 
-<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/releases/latest/download/laraselector-chrome.zip">⬇ Download the extension (.zip)</a>
+<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/raw/main/apps/chrome-extension/laraselector-chrome.zip">⬇ Download the extension (.zip)</a>
 
 Always the latest build. Older versions are on the [Releases page](https://github.com/mhmdelbadry74/laraselector/releases).
 
@@ -22,7 +22,7 @@ Works in other Chromium browsers too (Edge, Brave, Arc) using their `://extensio
 The Firefox build is new and has not been through a store review yet. Firefox only keeps unsigned add-ons until you restart it.
 :::
 
-<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/releases/latest/download/laraselector-firefox.zip">⬇ Download the Firefox build (.zip)</a>
+<a class="dl-btn" href="https://github.com/mhmdelbadry74/laraselector/raw/main/apps/chrome-extension/laraselector-firefox.zip">⬇ Download the Firefox build (.zip)</a>
 
 1. Download the ZIP (you do not need to unzip it).
 2. Open `about:debugging#/runtime/this-firefox`.
