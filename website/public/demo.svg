@@ -2,7 +2,7 @@
 <style>
 .hl{opacity:0;animation:hl 8s infinite}@keyframes hl{0%,18%{opacity:0}22%,60%{opacity:1}64%,100%{opacity:0}}
 .cur{animation:cur 8s infinite}@keyframes cur{0%{transform:translate(120px,330px)}20%{transform:translate(300px,185px)}60%{transform:translate(300px,185px)}100%{transform:translate(120px,330px)}}
-.ed{opacity:0;animation:ed 8s infinite}@keyframes ed{0%,60%{opacity:0;transform:translateY(14px)}68%,94%{opacity:1;transform:none}100%{opacity:0}}
+.ln{opacity:0;animation:ln 8s infinite}@keyframes ln{0%,62%{opacity:0}70%,94%{opacity:1}100%{opacity:0}}
 </style>
 <rect width="900" height="420" rx="14" fill="#0d0d10"/>
 <rect x="24" y="24" width="470" height="372" rx="10" fill="#fff"/><rect x="24" y="24" width="470" height="30" rx="10" fill="#e7e5e4"/>
@@ -13,11 +13,11 @@
 <rect class="hl" x="46" y="148" width="254" height="74" rx="9" fill="#e8432e22" stroke="#e8432e" stroke-width="2"/>
 <g class="hl"><rect x="46" y="124" width="150" height="20" rx="5" fill="#e8432e"/><text x="56" y="138" font-size="11" fill="#fff">orders.blade.php:14</text></g>
 <rect x="48" y="250" width="120" height="34" rx="8" fill="#ddd"/>
-<g class="ed"><rect x="520" y="60" width="356" height="300" rx="10" fill="#1e1e24" stroke="#33333c"/><rect x="520" y="60" width="356" height="28" rx="10" fill="#2a2a32"/><text x="536" y="79" font-size="11" fill="#aaa">orders.blade.php — VS Code</text>
-<rect x="520" y="136" width="356" height="22" fill="#e8432e33"/>
+<g><rect x="520" y="60" width="356" height="300" rx="10" fill="#1e1e24" stroke="#33333c"/><rect x="520" y="60" width="356" height="28" rx="10" fill="#2a2a32"/><text x="536" y="79" font-size="11" fill="#aaa">orders.blade.php — VS Code</text>
+<rect class="ln" x="520" y="140" width="356" height="22" fill="#e8432e44"/><rect class="ln" x="520" y="140" width="3" height="22" fill="#e8432e"/>
 <text x="536" y="112" font-size="12" fill="#7a7a86" font-family="monospace">12  @section('content')</text>
 <text x="536" y="132" font-size="12" fill="#7a7a86" font-family="monospace">13  &lt;h1&gt;Orders&lt;/h1&gt;</text>
-<text x="536" y="152" font-size="12" fill="#ffd9d2" font-family="monospace">14  &lt;x-card title="Latest"&gt;</text>
+<text x="536" y="156" font-size="12" fill="#ffd9d2" font-family="monospace">14  &lt;x-card title="Latest"&gt;</text>
 <text x="536" y="172" font-size="12" fill="#7a7a86" font-family="monospace">15    @foreach($orders as $o)</text></g>
 <g class="cur"><path d="M0 0v22l6-5 4 9 4-2-4-9 8-1z" fill="#111" stroke="#fff" stroke-width="1.5"/></g>
 </svg>
