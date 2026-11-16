@@ -97,7 +97,7 @@ final class PhpSourceNavigator
             }
         }
 
-return false;
+        return false;
     }
 
     private function relative(string $file): string
