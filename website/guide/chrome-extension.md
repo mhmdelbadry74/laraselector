@@ -34,16 +34,16 @@ The add-on is removed when Firefox restarts. A signed, permanent version will be
 ## Use it
 
 1. Open your local Laravel page (the package must be [enabled](/guide/getting-started)).
-2. Click the LaraSelector icon, then **Start selecting**.
+2. Click the LaraSelector icon: a **side panel** opens. Press **Select**.
 3. Hover an element and click it to open the details panel ([Features](/guide/features)). **Shift+click** selects several elements.
-4. **Page info** and **Heatmap** in the popup show page-level data and render times.
+4. **Page info** and **Heatmap** in the side panel show page-level data and render times.
 5. Press **Escape** to close the panel or stop.
 
-Using Docker, Sail or WSL? Type your project path into **Project path on this machine** in the popup so editor links open on your computer.
+Using Docker, Sail or WSL? Type your project path into **Project path on this machine** (gear icon in the side panel) so editor links open on your computer.
 
 ## Permissions
 
-Only `activeTab`, `scripting` and `storage`. Screenshots use `activeTab` and stay on your machine. It injects after you interact with the popup and talks only to the active page's same-origin `__laraselector` routes.
+`activeTab`, `scripting`, `storage` and `sidePanel`. Host access is optional: if the panel says it needs access to a tab, click **Allow on this site** (or click the toolbar icon on that tab). Screenshots use `activeTab` and stay on your machine. It injects after you open the side panel or click the icon and talks only to the active page's same-origin `__laraselector` routes.
 
 ## Updating
 

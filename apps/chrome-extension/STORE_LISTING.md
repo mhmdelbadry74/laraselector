@@ -6,7 +6,7 @@
 
 **Single purpose:** Help a developer locate the Blade template and original line responsible for a rendered element in their own local Laravel application.
 
-**Permissions:** `activeTab` grants temporary access only after the developer opens the popup; `scripting` injects the selector into that selected tab; `storage` is reserved for future local preferences and currently stores no page data.
+**Permissions:** `activeTab` grants temporary access only after the developer opens the side panel or clicks the icon; `scripting` injects the selector into that selected tab; `storage` keeps local preferences such as the optional project path; `sidePanel` shows the controls; optional site access can be granted per site. No page data is collected.
 
 **Privacy declaration:** The extension handles website content and a same-origin session handshake solely to provide selection and source resolution. Requests are sent only to the active local Laravel page's origin. No data is sent to LaraSelector's developer or third parties. Privacy policy URL after GitHub publish: `https://github.com/mhmdelbadry74/laraselector/blob/feature/laraselector-release/PRIVACY.md`.
 

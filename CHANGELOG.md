@@ -11,6 +11,7 @@
 - **Bug report**: element screenshot (copy / download) and a ready-made Markdown or Jira description with source, route, stack and data.
 - **Multi-select and compare**: Shift+click several elements, open them all, compare two (or pin one and compare it on another page).
 - **More editors**: `vscode-insiders`, `vscodium`, `windsurf`, `zed`, `sublime`, `idea`, `webstorm`, `textmate`, `nova`. New "Project path on this machine" option for Docker/Sail/WSL, and `laraselector:doctor` warns when it is needed.
+- Extension UI is now a side panel that also shows all element details (the old in-page drawer is gone) (a sidebar on Firefox) with connection status, Select / Page info / Heatmap, settings and shortcuts. The keyboard shortcut also opens it. Per-site access can be granted from the panel.
 - Protocol 3. The package adds `inspect`, `page`, `edit` and `undo` endpoints, a response-tagging middleware and render recording in compiled views. Run `php artisan view:clear` after upgrading.
 - New config keys: `editing`, `lang_paths`, `css_paths`, `inertia_paths`, `max_renders`, `nplus1_threshold`.
 - Livewire support: select an element inside a Livewire component and open its `wire:click`/`wire:submit` action or the component class (v2, v3, v4; Volt actions are found inside the Blade file).

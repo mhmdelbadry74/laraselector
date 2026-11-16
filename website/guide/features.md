@@ -1,6 +1,6 @@
 # Features
 
-Click an element (**Start selecting**) and a panel opens with everything LaraSelector knows about it. Update the package and run `php artisan view:clear` once to enable the details.
+Press **Select** in the side panel, then click an element: the side panel shows everything LaraSelector knows about it. Update the package and run `php artisan view:clear` once to enable the details.
 
 ## Inspect
 
@@ -13,7 +13,7 @@ Click an element (**Start selecting**) and a panel opens with everything LaraSel
 - **Translations**: click text to find its key in `lang/*.php` and `lang/*.json`, in every locale.
 - **CSS**: which project stylesheet defines each class; utility classes (Tailwind) are marked and `tailwind.config.*` is one click away.
 
-## Page-level tools (extension popup)
+## Page-level tools (side panel)
 
 - **Page info**: route, number of renders and queries, N+1 warnings, Inertia page.
 - **Heatmap**: outlines every Blade partial on the page, coloured from green to red by its own render time.
@@ -37,4 +37,4 @@ Off by default. Set `LARASELECTOR_EDITING=true`, then in the **Text** or **CSS**
 
 ## Docker, Sail, WSL
 
-Editor links need your machine's path. Either set `path_mapping` in the config or type the project path into **Project path on this machine** in the extension popup.
+Editor links need your machine's path. Either set `path_mapping` in the config or type the project path into **Project path on this machine** in the side panel settings (gear icon).

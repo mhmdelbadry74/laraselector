@@ -24,7 +24,7 @@ Register JetBrains' URL handler or install its command-line launcher on your OS.
 
 ## The editor opens the wrong path with Docker
 
-Set `path_mapping`, for example `['/var/www/html' => '/Users/me/project']`, or type the path in **Project path on this machine** in the extension popup.
+Set `path_mapping`, for example `['/var/www/html' => '/Users/me/project']`, or type the path in **Project path on this machine** in the side panel settings (gear icon).
 
 ## A controller is not found
 

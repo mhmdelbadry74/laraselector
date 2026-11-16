@@ -21,7 +21,7 @@ LaraSelector أداة للتطوير فقط (Development) لـ Laravel: تختا
 
 اضغط على عنصر وستظهر لوحة بالتبويبات التالية: **Open** (فتح Blade والـ controller وLivewire)، **Data** (المتغيرات الممررة للـ view مع إخفاء الأسرار)، **Stack** (ترتيب الـ render مع الأوقات)، **Queries** (الاستعلامات مع تنبيه N+1)، **Route** (الـ route والـ middleware وقواعد الـ FormRequest)، **Text** (مفاتيح الترجمة وتعديل النص)، **CSS** (مكان تعريف كل class)، **Livewire/Alpine**، **Report** (لقطة للعنصر وتقرير جاهز لـ GitHub أو Jira)، **Compare** (مقارنة عنصرين). بالإضافة إلى **Page info** و**Heatmap** لأوقات الـ render، واختيار عدة عناصر بـ Shift+click. التعديل داخل الملفات متوقف افتراضيًا حتى تضع `LARASELECTOR_EDITING=true`. نفّذ `php artisan view:clear` بعد التحديث.
 
-المحررات المدعومة الآن: `vscode`, `vscode-insiders`, `vscodium`, `cursor`, `windsurf`, `zed`, `sublime`, `phpstorm`, `idea`, `webstorm`, `textmate`, `nova`. لو تستخدم Docker/Sail اكتب مسار المشروع على جهازك في نافذة الإضافة ("Project path on this machine") أو استخدم `path_mapping`.
+المحررات المدعومة الآن: `vscode`, `vscode-insiders`, `vscodium`, `cursor`, `windsurf`, `zed`, `sublime`, `phpstorm`, `idea`, `webstorm`, `textmate`, `nova`. لو تستخدم Docker/Sail اكتب مسار المشروع على جهازك في اللوحة الجانبية للإضافة ("Project path on this machine") أو استخدم `path_mapping`.
 
 ## التثبيت عن طريق Composer
 

@@ -38,7 +38,7 @@ It only runs in the `local` and `dev` environments. Production is always denied,
 ## Use it
 
 1. Open your local Laravel page.
-2. Open LaraSelector from the toolbar and click **Start selecting**.
+2. Click the LaraSelector icon to open its side panel and press **Select**.
 3. Hover an element and click it. A panel opens: open its Blade file, controller or form action, or look at its data, queries, route and more (see [Features](/guide/features)).
 4. Your editor opens at the exact line. Press **Escape** to close the panel or stop selecting.
 

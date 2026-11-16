@@ -84,7 +84,7 @@ Also: **Page info** (route, totals, N+1, Inertia component and props), a **rende
 
 ## Editors and navigation notes
 
-Supported editors: `vscode`, `vscode-insiders`, `vscodium`, `cursor`, `windsurf`, `zed`, `sublime`, `phpstorm`, `idea`, `webstorm`, `textmate`, `nova`. VS Code-family editors use `<scheme>://file/…`, Zed `zed://file/…`, Sublime `subl://open`, JetBrains `<ide>://open?file=…&line=…`; register the editor's URL handler/launcher if the browser reports an unregistered protocol. Neovim has no URL scheme, so it cannot be targeted without a custom handler. Running in Docker/Sail/WSL? Set `path_mapping`, or type the project path in the extension popup ("Project path on this machine"). The extension shows only project-relative paths and opens the editor only after you pick an action.
+Supported editors: `vscode`, `vscode-insiders`, `vscodium`, `cursor`, `windsurf`, `zed`, `sublime`, `phpstorm`, `idea`, `webstorm`, `textmate`, `nova`. VS Code-family editors use `<scheme>://file/…`, Zed `zed://file/…`, Sublime `subl://open`, JetBrains `<ide>://open?file=…&line=…`; register the editor's URL handler/launcher if the browser reports an unregistered protocol. Neovim has no URL scheme, so it cannot be targeted without a custom handler. Running in Docker/Sail/WSL? Set `path_mapping`, or type the project path in the extension side panel settings ("Project path on this machine"). The extension shows only project-relative paths and opens the editor only after you pick an action.
 
 Form navigation supports same-origin relative/absolute actions, implicit action, GET/POST, `_method` spoofing and submit-button `formaction`/`formmethod`. Dynamic JavaScript destinations and external origins are unsupported.
 
@@ -106,7 +106,7 @@ composer install && composer test
 
 [⬇ Download the latest extension ZIP](https://github.com/mhmdelbadry74/laraselector/raw/main/apps/chrome-extension/laraselector-chrome.zip) · [Step-by-step guide](https://mhmdelbadry74.github.io/laraselector/guide/chrome-extension)
 
-Download the release ZIP, unzip it, and load the extracted directory from `chrome://extensions` → Developer mode → Load unpacked. On an enabled local Laravel page, open LaraSelector, click **Start selecting**, hover a marked element, click to open source, and press Escape to stop.
+Download the release ZIP, unzip it, and load the extracted directory from `chrome://extensions` → Developer mode → Load unpacked. On an enabled local Laravel page, click the LaraSelector icon (opens a side panel), press **Select**, hover a marked element, click to open source, and press Escape to stop.
 
 ## Demo and development
 

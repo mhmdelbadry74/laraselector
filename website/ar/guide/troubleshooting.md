@@ -24,7 +24,7 @@ php artisan laraselector:doctor
 
 ## المحرر يفتح مسارًا خاطئًا مع Docker
 
-اضبط `path_mapping`، مثلًا `['/var/www/html' => '/Users/me/project']`، أو اكتب المسار في **Project path on this machine** في نافذة الإضافة.
+اضبط `path_mapping`، مثلًا `['/var/www/html' => '/Users/me/project']`، أو اكتب المسار في **Project path on this machine** في إعدادات اللوحة الجانبية (أيقونة الترس).
 
 ## لا يتم العثور على controller
 
