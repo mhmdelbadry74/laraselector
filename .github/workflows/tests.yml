@@ -20,6 +20,7 @@ jobs:
         with: {php-version: '${{ matrix.php }}', coverage: none}
       - name: Install
         run: |
+          composer config audit.block-insecure false
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --prefer-dist --no-interaction
       - name: Code style
