@@ -80,7 +80,7 @@ async function connect() {
   if (!tab) { setStatus('warn', 'No tab'); showAlert('No active tab', 'Click a tab with your Laravel app, then use Select.'); return renderControls(); }
   // tab.url is hidden until the extension has access to the tab (e.g. when the panel was opened from
   // Chrome's own side-panel menu instead of the LaraSelector toolbar icon).
-  if (tab.url && !hostOf(tab)) { setStatus('warn', 'Not a web page'); showAlert('Open a local Laravel page', 'This tab is not a web page. Switch to the tab running your app.'); return renderControls(); }
+  if (tab.url && !hostOf(tab)) { setStatus('warn', 'Not a web page'); showAlert('Open a local Laravel page', `LaraSelector sees this tab as “${tab.url.slice(0, 80)}”, which is not a web page. Click the tab that runs your app.`); return renderControls(); }
   origin = tab.url ? hostOf(tab) : null;
   let r = await send('status');
   if (!r) {
@@ -122,7 +122,10 @@ els.heat.onclick = async () => { const r = await send('heatmap'); if (r) state.h
 $('dclose').onclick = () => rpc('closeView').catch(() => setView(null));
 
 async function loadTab() {
-  [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+  // A side panel is not a normal tab, so "currentWindow" can be wrong: prefer the last focused window,
+  // and among candidates prefer a real web page.
+  const found = [...await chrome.tabs.query({active: true, lastFocusedWindow: true}), ...await chrome.tabs.query({active: true, currentWindow: true})];
+  tab = found.find((t) => t.url && hostOf(t)) || found.find((t) => !t.url) || found[0];
   const o = tab?.url ? hostOf(tab) : null;
   els.root.disabled = !o;
   if (o) {
