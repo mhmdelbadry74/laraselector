@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 - 2026-11-16
 - **Element details panel**: click an element to see the variables passed to its view (secrets redacted), the render stack (page → layout → partial), the queries it ran with N+1 detection, and its route (name, middleware, FormRequest and its validation rules).
 - **Page info** and **render heatmap**: per-request totals, every Blade file's render time, and an overlay that colours each partial by how slow it is.
 - **Livewire/Alpine inspector**: component class, public properties (snapshot) and `render()`; Alpine `x-data`.
