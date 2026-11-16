@@ -14,10 +14,10 @@
 <g class="hl"><rect x="46" y="124" width="150" height="20" rx="5" fill="#e8432e"/><text x="56" y="138" font-size="11" fill="#fff">orders.blade.php:14</text></g>
 <rect x="48" y="250" width="120" height="34" rx="8" fill="#ddd"/>
 <g><rect x="520" y="60" width="356" height="300" rx="10" fill="#1e1e24" stroke="#33333c"/><rect x="520" y="60" width="356" height="28" rx="10" fill="#2a2a32"/><text x="536" y="79" font-size="11" fill="#aaa">orders.blade.php — VS Code</text>
-<rect class="ln" x="520" y="140" width="356" height="22" fill="#e8432e44"/><rect class="ln" x="520" y="140" width="3" height="22" fill="#e8432e"/>
+<rect class="ln" x="520" y="137" width="356" height="21" fill="#e8432e44"/><rect class="ln" x="520" y="137" width="3" height="21" fill="#e8432e"/>
 <text x="536" y="112" font-size="12" fill="#7a7a86" font-family="monospace">12  @section('content')</text>
 <text x="536" y="132" font-size="12" fill="#7a7a86" font-family="monospace">13  &lt;h1&gt;Orders&lt;/h1&gt;</text>
-<text x="536" y="156" font-size="12" fill="#ffd9d2" font-family="monospace">14  &lt;x-card title="Latest"&gt;</text>
+<text x="536" y="152" font-size="12" fill="#ffd9d2" font-family="monospace">14  &lt;x-card title="Latest"&gt;</text>
 <text x="536" y="172" font-size="12" fill="#7a7a86" font-family="monospace">15    @foreach($orders as $o)</text></g>
 <g class="cur"><path d="M0 0v22l6-5 4 9 4-2-4-9 8-1z" fill="#111" stroke="#fff" stroke-width="1.5"/></g>
 </svg>
