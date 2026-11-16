@@ -6,3 +6,15 @@
 .demo p{text-align:center;color:var(--vp-c-text-3);font-size:.85rem;margin-top:6px}
 .VPHome .vp-doc img{display:block;margin:8px auto 4px;max-width:900px;width:100%;border-radius:14px;border:1px solid var(--vp-c-divider)}
 .demo-cap{text-align:center;color:var(--vp-c-text-3);font-size:.85rem}
+.VPHome .vp-doc{max-width:960px;margin:0 auto;padding:24px 24px 64px}
+.VPHome .vp-doc h2{border:0;margin-top:56px;text-align:center;font-size:1.8rem}
+.steps3,.cards2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+.steps3>div,.cards2>div{background:var(--vp-c-bg-soft);border:1px solid var(--vp-c-divider);border-radius:14px;padding:20px}
+.steps3 b{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--vp-c-brand-1);color:#fff}
+.steps3 h3{margin:12px 0 4px;border:0}.steps3 p,.cards2 p{margin:0;color:var(--vp-c-text-2);font-size:.95rem;line-height:1.7}
+.cards2 b{display:block;margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.chips span{border:1px solid var(--vp-c-divider);background:var(--vp-c-bg-soft);padding:6px 16px;border-radius:99px;font-size:.9rem}
+.cta-end{margin-top:64px;text-align:center;padding:40px 20px;border-radius:18px;background:linear-gradient(135deg,#e8432e,#ff8a5c);color:#fff}
+.cta-end h2{margin:0!important;color:#fff;border:0}.cta-end p{color:#ffffffe6}
+.cta-btn{display:inline-block;margin-top:8px;background:#fff;color:#c93420!important;padding:10px 26px;border-radius:10px;font-weight:700;text-decoration:none!important}
