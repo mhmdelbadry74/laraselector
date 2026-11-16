@@ -2,6 +2,9 @@
 
 ## Unreleased
 - Experimental Firefox build of the extension (`npm run package:firefox`, attached to releases).
+- Extension: fixed `Uncaught (in promise) Error: Could not establish connection. Receiving end does not exist.` (state messages sent with no listener are now ignored).
+- Extension ZIPs are tracked in git; download links point to the latest file on `main`.
+- Docs: removed the "Edit this page" link.
 
 ## 0.1.1 - 2026-11-16
 
