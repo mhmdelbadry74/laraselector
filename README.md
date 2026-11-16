@@ -2,21 +2,74 @@
 
 LaraSelector is a development-only Laravel tool: choose a rendered Blade element in Chrome and open its Blade source, page controller, or form-action controller in VS Code, Cursor, or PhpStorm. You need both the Laravel package and Chrome extension.
 
-## Beta install
+**English** | [العربية](README.ar.md)
 
-Until Packagist publication, add a VCS repository to your application's `composer.json` and require the beta branch:
+## Requirements
+
+- PHP 8.1+ and Laravel 10, 11 or 12
+- The LaraSelector Chrome extension (see below)
+- VS Code, Cursor or PhpStorm
+
+## Installation
 
 ```sh
-composer config repositories.laraselector vcs https://github.com/mhmdelbadry74/laraselector.git
-composer require --dev mhmdelbadry74/laraselector-laravel:dev-feature/laraselector-release
+composer require --dev mhmdelbadry74/laraselector-laravel
 php artisan vendor:publish --tag=laraselector-config
 ```
 
-Set `LARASELECTOR_ENABLED=true` and `LARASELECTOR_EDITOR=vscode` (or `cursor` / `phpstorm`) in `.env`. The default allowlist is `local,dev`; production is always denied, even if it is enabled or incorrectly allowlisted. The package runtime-gates compiled views and all development endpoints, so cached marked views cannot expose usable attributes after disabling it or changing environment. Running `php artisan view:clear` is still recommended after configuration deployment.
+The service provider is auto-discovered. Until the package is listed on Packagist, add the repository first:
 
-Use `php_inspect_paths` to limit PHP navigation (default: `app/` and `routes/`). The extension displays only project-relative paths, and sends a deliberate browser navigation to the editor only after you select an action. Form navigation supports same-origin relative/absolute actions, implicit action, GET/POST, `_method` spoofing, and submit-button `formaction`/`formmethod`; routes are matched against a synthetic request and never dispatched. Dynamic JavaScript destinations and external origins are intentionally unsupported. PHP targets are validated with real paths, including symlink checks.
+```sh
+composer config repositories.laraselector vcs https://github.com/mhmdelbadry74/laraselector.git
+composer require --dev mhmdelbadry74/laraselector-laravel:dev-main
+```
 
-VS Code/Cursor use their documented `vscode://file` and `cursor://file` handlers. PhpStorm uses `phpstorm://open?file=…&line=…`; install/register JetBrains' command-line launcher/URL handler on your OS if the browser reports an unregistered protocol. `path_mapping` applies to Blade and PHP paths, for example `['/var/www/html' => '/Users/me/project']`.
+## Configuration
+
+Add to `.env`:
+
+```dotenv
+LARASELECTOR_ENABLED=true
+LARASELECTOR_EDITOR=vscode   # vscode | cursor | phpstorm
+```
+
+Then clear compiled views: `php artisan view:clear`.
+
+Config file `config/laraselector.php`:
+
+| Key | Default | Purpose |
+| --- | --- | --- |
+| `enabled` | `false` | Master switch (`LARASELECTOR_ENABLED`). |
+| `environments` | `local`, `dev` | Allowed environments. `production` is always denied. |
+| `editor` | `vscode` | Editor used to build the link. |
+| `application_root` | `base_path()` | Root used for project-relative paths. |
+| `path_mapping` | `[]` | Map paths, e.g. Docker: `['/var/www/html' => '/Users/me/project']`. |
+| `inspect_paths` | `resources/views` | Blade directories that are marked. |
+| `php_inspect_paths` | `app/`, `routes/` | PHP directories controllers may be opened from. |
+| `exclude_paths` | `resources/views/vendor` | Excluded Blade paths. |
+| `token_ttl_seconds` | `300` | Lifetime of source tokens. |
+
+## Usage
+
+1. Install the extension, open your local Laravel page.
+2. Open LaraSelector and click **Start selecting**.
+3. Hover an element, click it, and choose Blade / controller / form action. Press Escape to stop.
+
+## Editors and navigation notes
+
+VS Code/Cursor use the `vscode://file` and `cursor://file` handlers. PhpStorm uses `phpstorm://open?file=…&line=…`; register JetBrains' URL handler/launcher if the browser reports an unregistered protocol. The extension shows only project-relative paths and opens the editor only after you pick an action.
+
+Form navigation supports same-origin relative/absolute actions, implicit action, GET/POST, `_method` spoofing and submit-button `formaction`/`formmethod`. Dynamic JavaScript destinations and external origins are unsupported.
+
+## Security
+
+Development only. The package is gated at request/render time, so cached views stay inert once disabled or when the environment changes. Endpoints return 404 when inactive, require same-origin and a session token, never dispatch routes, and validate real paths (including symlinks) inside the allowlist.
+
+## Testing
+
+```sh
+composer install && composer test
+```
 
 ## Chrome extension
 
@@ -28,7 +81,7 @@ Download the release ZIP, unzip it, and load the extracted directory from `chrom
 cd examples/laravel-demo && composer install && cp .env.example .env
 php artisan key:generate && php artisan view:clear && php artisan serve
 cd ../../apps/chrome-extension && npm run build && npm run package
-cd ../../packages/laravel && composer install && composer test
+cd ../.. && composer install && composer test
 ```
 
 ## Compatibility and limitations
@@ -37,4 +90,4 @@ LaraSelector marks static HTML opening tags while Blade still has original sourc
 
 ## Privacy and support
 
-Read [the privacy policy](PRIVACY.md). Open bugs through GitHub Issues. This repository has no license yet; choose one before describing it as open source.
+Read [the privacy policy](PRIVACY.md). Open bugs through GitHub Issues. Licensed under the [MIT License](LICENSE).

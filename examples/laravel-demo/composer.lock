@@ -4,57 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "338dc08f11f1347de955fa30e377339d",
+    "content-hash": "4f8ff81e651ea9d8d4bb53959b2b831b",
     "packages": [
-        {
-            "name": "bladelocator/laravel",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../../packages/laravel",
-                "reference": "17d1277c2f2e8e404beb8580f0751c013f2bc6fe"
-            },
-            "require": {
-                "illuminate/support": "^10.0|^11.0|^12.0",
-                "illuminate/view": "^10.0|^11.0|^12.0",
-                "php": "^8.1"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^8.0|^9.0|^10.0",
-                "phpunit/phpunit": "^10.0|^11.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "BladeLocator\\BladeLocatorServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "BladeLocator\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "BladeLocator\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "phpunit"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Local-only Blade source locator",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
         {
             "name": "brick/math",
             "version": "0.14.8",
@@ -2010,6 +1961,68 @@
                 }
             ],
             "time": "2026-11-04T12:45:07+00:00"
+        },
+        {
+            "name": "mhmdelbadry74/laraselector-laravel",
+            "version": "dev-feature/php-navigation",
+            "dist": {
+                "type": "path",
+                "url": "../..",
+                "reference": "b8c3ec29648d8d30da5a51690e6371e97ae557d0"
+            },
+            "require": {
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "illuminate/view": "^10.0|^11.0|^12.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^10.0|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaraSelector\\LaraSelectorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaraSelector\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "LaraSelector\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Development-only Laravel tool: click an element in the browser and jump to its Blade view, page controller or form-action controller in your editor.",
+            "homepage": "https://github.com/mhmdelbadry74/laraselector",
+            "keywords": [
+                "blade",
+                "cursor",
+                "devtools",
+                "inspector",
+                "laravel",
+                "phpstorm",
+                "vscode"
+            ],
+            "support": {
+                "issues": "https://github.com/mhmdelbadry74/laraselector/issues"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "monolog/monolog",
@@ -5962,7 +5975,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "bladelocator/laravel": 20
+        "mhmdelbadry74/laraselector-laravel": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

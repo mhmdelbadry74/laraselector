@@ -8,3 +8,6 @@
 **/storage/logs/*
 !**/storage/logs/.gitignore
 *.log
+.phpunit.result.cache
+composer.lock
+.DS_Store
