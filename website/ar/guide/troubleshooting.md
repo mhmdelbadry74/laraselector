@@ -1,5 +1,11 @@
 # حل المشاكل
 
+ابدأ بأمر الفحص المدمج، فهو يخبرك بما هو خاطئ:
+
+```sh
+php artisan laraselector:doctor
+```
+
 ## لا يظهر أي عنصر معلَّم
 
 تأكد أن `LARASELECTOR_ENABLED=true` وأن `APP_ENV` هي `local` أو `dev`، ثم نفّذ `php artisan view:clear` وأعد تحميل الصفحة.

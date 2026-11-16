@@ -1,5 +1,11 @@
 # Troubleshooting
 
+Start with the built-in check, it tells you what is wrong:
+
+```sh
+php artisan laraselector:doctor
+```
+
 ## No element is marked
 
 Check `LARASELECTOR_ENABLED=true` and that `APP_ENV` is `local` or `dev`, then run `php artisan view:clear` and reload.

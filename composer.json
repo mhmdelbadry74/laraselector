@@ -1,9 +1,19 @@
 {
   "name": "mhmdelbadry74/laraselector-laravel",
   "description": "Development-only Laravel tool: click an element in the browser and jump to its Blade view, page controller or form-action controller in your editor.",
-  "keywords": ["laravel", "blade", "devtools", "vscode", "cursor", "phpstorm", "inspector"],
+  "keywords": [
+    "laravel",
+    "blade",
+    "devtools",
+    "vscode",
+    "cursor",
+    "phpstorm",
+    "inspector"
+  ],
   "homepage": "https://github.com/mhmdelbadry74/laraselector",
-  "support": {"issues": "https://github.com/mhmdelbadry74/laraselector/issues"},
+  "support": {
+    "issues": "https://github.com/mhmdelbadry74/laraselector/issues"
+  },
   "type": "library",
   "license": "MIT",
   "require": {
@@ -12,14 +22,35 @@
     "illuminate/view": "^10.0|^11.0|^12.0"
   },
   "require-dev": {
+    "laravel/pint": "^1.32",
     "orchestra/testbench": "^8.0|^9.0|^10.0",
     "phpunit/phpunit": "^10.0|^11.0"
   },
-  "autoload": {"psr-4": {"LaraSelector\\": "src/"}},
-  "autoload-dev": {"psr-4": {"LaraSelector\\Tests\\": "tests/"}},
-  "extra": {"laravel": {"providers": ["LaraSelector\\LaraSelectorServiceProvider"]}},
-  "scripts": {"test": "phpunit"},
-  "config": {"sort-packages": true},
+  "autoload": {
+    "psr-4": {
+      "LaraSelector\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LaraSelector\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LaraSelector\\LaraSelectorServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "lint": "pint --test",
+    "format": "pint"
+  },
+  "config": {
+    "sort-packages": true
+  },
   "minimum-stability": "stable",
   "prefer-stable": true
 }

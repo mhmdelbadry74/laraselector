@@ -72,6 +72,10 @@ LARASELECTOR_EDITOR=vscode   # vscode | cursor | phpstorm
 
 يعلّم LaraSelector وسوم HTML الثابتة، ويدعم layouts وincludes والحلقات والشروط وviews الـ components وslots. يتجاهل الوسوم الديناميكية التي تحتوي تعبيرات Blade، ووسوم استدعاء الـ components، وShadow DOM، والـ iframes من origin آخر. التنقل لإجراءات Livewire غير متاح حاليًا.
 
+## حل المشاكل
+
+نفّذ `php artisan laraselector:doctor` لفحص إعداداتك.
+
 ## الاختبارات والتطوير
 
 ```sh

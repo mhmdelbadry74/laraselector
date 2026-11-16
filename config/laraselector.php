@@ -1,1 +1,3 @@
-<?php return ['enabled'=>env('LARASELECTOR_ENABLED',false),'environments'=>['local','dev'],'editor'=>env('LARASELECTOR_EDITOR','vscode'),'application_root'=>base_path(),'path_mapping'=>[],'inspect_paths'=>[resource_path('views')],'php_inspect_paths'=>[app_path(),base_path('routes')],'exclude_paths'=>[resource_path('views/vendor')],'token_ttl_seconds'=>300];
+<?php
+
+return ['enabled' => env('LARASELECTOR_ENABLED', false), 'environments' => ['local', 'dev'], 'editor' => env('LARASELECTOR_EDITOR', 'vscode'), 'application_root' => base_path(), 'path_mapping' => [], 'inspect_paths' => [resource_path('views')], 'php_inspect_paths' => [app_path(), base_path('routes')], 'exclude_paths' => [resource_path('views/vendor')], 'token_ttl_seconds' => 300];

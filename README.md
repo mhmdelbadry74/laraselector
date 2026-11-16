@@ -62,6 +62,10 @@ Form navigation supports same-origin relative/absolute actions, implicit action,
 
 Development only. The package is gated at request/render time, so cached views stay inert once disabled or when the environment changes. Endpoints return 404 when inactive, require same-origin and a session token, never dispatch routes, and validate real paths (including symlinks) inside the allowlist.
 
+## Troubleshooting
+
+Run `php artisan laraselector:doctor` to check your setup.
+
 ## Testing
 
 ```sh
