@@ -9,3 +9,12 @@ Pairs with the [`mhmdelbadry74/laraselector-laravel`](https://packagist.org/pack
 **Permissions:** only `activeTab`, `scripting` and `storage`. It injects after a popup interaction and only talks to the active page's same-origin `__laraselector` routes.
 
 **Firefox:** `npm run package:firefox` builds `laraselector-firefox.zip` (Firefox 140+). It is experimental and not yet published on Firefox Add-ons.
+
+## Publishing to the Chrome Web Store
+
+Set `CWS_EXTENSION_ID`, `CWS_CLIENT_ID`, `CWS_CLIENT_SECRET`, `CWS_REFRESH_TOKEN` (Chrome Web Store API OAuth credentials), bump `version` in `src/manifest.json`, then:
+
+```sh
+npm run publish:chrome         # build, zip, upload as draft
+npm run publish:chrome:submit  # same, then submit for review
+```

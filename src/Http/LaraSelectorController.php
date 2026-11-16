@@ -16,7 +16,7 @@ final class LaraSelectorController extends Controller
 
         return response()->json([
             'protocol' => 2,
-            'capabilities' => ['resolve', 'editor-uri', 'page-controller', 'form-action'],
+            'capabilities' => ['resolve', 'editor-uri', 'page-controller', 'form-action', 'livewire'],
         ]);
     }
 
@@ -64,11 +64,45 @@ final class LaraSelectorController extends Controller
             $targets['formAction'] = $this->target($action);
         }
 
+        $livewire = $request->input('livewire');
+
+        if (is_array($livewire)) {
+            $found = $php->livewire($livewire);
+            if (isset($found['action'])) {
+                $targets['livewireAction'] = $this->target($found['action']);
+            }
+            if (! isset($found['action']) && ($volt = $this->voltAction($blade, (string) ($livewire['action'] ?? '')))) {
+                $targets['livewireAction'] = $this->target($volt);
+            }
+            if (isset($found['component'])) {
+                $targets['livewireComponent'] = $this->target($found['component']);
+            }
+        }
+
         return response()->json([
             'source' => $targets['blade']['source'],
             'editorUri' => $targets['blade']['editorUri'],
             'targets' => $targets,
         ]);
+    }
+
+    /** Volt components live inside the Blade file itself: find the action function there. */
+    private function voltAction(array $blade, string $action): ?array
+    {
+        if (preg_match('/^[A-Za-z_]\w*$/', $action) !== 1) {
+            return null;
+        }
+        $lines = @file($blade['path'], FILE_IGNORE_NEW_LINES) ?: [];
+        if (! str_contains(implode("\n", $lines), 'Livewire\\Volt') && ! str_contains(implode("\n", $lines), '@volt')) {
+            return null;
+        }
+        foreach ($lines as $i => $line) {
+            if (preg_match('/function\s+'.$action.'\s*\(|\$'.$action.'\s*=\s*(fn|function)|action\(\s*\$?'.$action.'\b/', $line) === 1) {
+                return ['path' => $blade['path'], 'relative' => $blade['relative'], 'line' => $i + 1];
+            }
+        }
+
+        return null;
     }
 
     private function target(array $source): array

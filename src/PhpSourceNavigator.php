@@ -27,6 +27,69 @@ final class PhpSourceNavigator
         return $this->fromUrl($url ?: $request->fullUrl(), $method);
     }
 
+    /**
+     * Resolve a Livewire component class (and optionally one of its public methods).
+     * The component name and action come from the browser, so they are validated,
+     * resolved only through Livewire's own registry and checked against php_inspect_paths.
+     *
+     * @return array{component?: array, action?: array}
+     */
+    public function livewire(array $info): array
+    {
+        $name = (string) ($info['component'] ?? '');
+        $action = (string) ($info['action'] ?? '');
+        if ($name === '' || strlen($name) > 200 || preg_match('/^[A-Za-z0-9._:\\-]+$/', $name) !== 1) {
+            return [];
+        }
+        $class = $this->livewireClass($name);
+        if (! $class || ! class_exists($class) || ! is_subclass_of($class, 'Livewire\\Component')) {
+            return [];
+        }
+        $out = [];
+        try {
+            $ref = new \ReflectionClass($class);
+            $file = $ref->getFileName();
+            if (! $file || ! $this->allowed($file)) {
+                return [];
+            }
+            $out['component'] = ['path' => $file, 'relative' => $this->relative($file), 'line' => $ref->getStartLine()];
+            if (preg_match('/^[A-Za-z_]\w*$/', $action) === 1 && $ref->hasMethod($action)) {
+                $m = $ref->getMethod($action);
+                $mf = $m->getFileName();
+                if ($m->isPublic() && $mf && $this->allowed($mf)) {
+                    $out['action'] = ['path' => $mf, 'relative' => $this->relative($mf), 'line' => $m->getStartLine()];
+                }
+            }
+        } catch (\Throwable) {
+            return [];
+        }
+
+        return $out;
+    }
+
+    private function livewireClass(string $name): ?string
+    {
+        $resolvers = [
+            // Livewire 3
+            fn () => app(\Livewire\Mechanisms\ComponentRegistry::class)->getClass($name),
+            // Livewire 4
+            fn () => app('livewire.finder')->resolveClassComponentClassName($name),
+            // Livewire 2
+            fn () => app(\Livewire\LivewireComponentsFinder::class)->find($name),
+        ];
+        foreach ($resolvers as $resolve) {
+            try {
+                $class = $resolve();
+                if (is_string($class) && $class !== '') {
+                    return $class;
+                }
+            } catch (\Throwable) {
+            }
+        }
+
+        return null;
+    }
+
     private function fromUrl(string $url, string $method): ?array
     {
         $parts = parse_url($url);

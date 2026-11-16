@@ -116,4 +116,16 @@ final class EndpointsTest extends TestCase
             ->postJson('/__laraselector/resolve', ['id' => $this->validId()], ['X-LaraSelector-Token' => 'right'])
             ->assertOk();
     }
+
+    public function test_resolve_ignores_invalid_livewire_info(): void
+    {
+        $this->withSession(['laraselector_token' => 'right'])
+            ->postJson('/__laraselector/resolve', [
+                'id' => $this->validId(),
+                'livewire' => ['component' => '../../etc/passwd', 'action' => 'save'],
+            ], ['X-LaraSelector-Token' => 'right'])
+            ->assertOk()
+            ->assertJsonMissingPath('targets.livewireAction')
+            ->assertJsonMissingPath('targets.livewireComponent');
+    }
 }
