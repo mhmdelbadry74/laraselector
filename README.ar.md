@@ -1,5 +1,10 @@
 # LaraSelector
 
+[![Packagist Version](https://img.shields.io/packagist/v/mhmdelbadry74/laraselector-laravel)](https://packagist.org/packages/mhmdelbadry74/laraselector-laravel)
+[![Tests](https://github.com/mhmdelbadry74/laraselector/actions/workflows/tests.yml/badge.svg)](https://github.com/mhmdelbadry74/laraselector/actions/workflows/tests.yml)
+[![License](https://img.shields.io/github/license/mhmdelbadry74/laraselector)](LICENSE)
+![PHP](https://img.shields.io/packagist/php-v/mhmdelbadry74/laraselector-laravel)
+
 [English](README.md) | **العربية**
 
 📖 **التوثيق:** [العربية](https://mhmdelbadry74.github.io/laraselector/ar/) · [English](https://mhmdelbadry74.github.io/laraselector/) · [Packagist](https://packagist.org/packages/mhmdelbadry74/laraselector-laravel)

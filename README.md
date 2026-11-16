@@ -1,5 +1,10 @@
 # LaraSelector
 
+[![Packagist Version](https://img.shields.io/packagist/v/mhmdelbadry74/laraselector-laravel)](https://packagist.org/packages/mhmdelbadry74/laraselector-laravel)
+[![Tests](https://github.com/mhmdelbadry74/laraselector/actions/workflows/tests.yml/badge.svg)](https://github.com/mhmdelbadry74/laraselector/actions/workflows/tests.yml)
+[![License](https://img.shields.io/github/license/mhmdelbadry74/laraselector)](LICENSE)
+![PHP](https://img.shields.io/packagist/php-v/mhmdelbadry74/laraselector-laravel)
+
 LaraSelector is a development-only Laravel tool: choose a rendered Blade element in Chrome and open its Blade source, page controller, or form-action controller in VS Code, Cursor, or PhpStorm. You need both the Laravel package and Chrome extension.
 
 **English** | [العربية](README.ar.md)
