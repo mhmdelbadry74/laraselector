@@ -11,3 +11,6 @@
 .phpunit.result.cache
 composer.lock
 .DS_Store
+website/node_modules/
+website/.vitepress/dist/
+website/.vitepress/cache/

@@ -5,3 +5,4 @@
 /assets export-ignore
 /phpunit.xml export-ignore
 /.gitattributes export-ignore
+/website export-ignore

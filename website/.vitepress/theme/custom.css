@@ -1,0 +1,8 @@
+:root{--vp-c-brand-1:#e8432e;--vp-c-brand-2:#f05a45;--vp-c-brand-3:#e8432e;--vp-c-brand-soft:#e8432e1f;
+--vp-home-hero-name-color:transparent;--vp-home-hero-name-background:linear-gradient(120deg,#e8432e,#ff8a5c);
+--vp-home-hero-image-background-image:linear-gradient(135deg,#e8432e55,#ff8a5c33);--vp-home-hero-image-filter:blur(56px)}
+.dark{--vp-c-brand-1:#ff6a55;--vp-c-brand-2:#ff8470}
+.demo{margin:8px auto 32px;max-width:900px;padding:0 24px}.demo img{width:100%;border-radius:14px;border:1px solid var(--vp-c-divider)}
+.demo p{text-align:center;color:var(--vp-c-text-3);font-size:.85rem;margin-top:6px}
+.VPHome .vp-doc img{display:block;margin:8px auto 4px;max-width:900px;width:100%;border-radius:14px;border:1px solid var(--vp-c-divider)}
+.demo-cap{text-align:center;color:var(--vp-c-text-3);font-size:.85rem}

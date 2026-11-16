@@ -1,0 +1,3 @@
+import sharp from 'sharp'
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="#0d0d10"/><rect x="90" y="120" width="96" height="96" rx="24" fill="#e8432e"/><path d="M120 140v46l12-10 9 20 9-5-9-19 17-2z" fill="#fff"/><text x="90" y="330" font-family="Helvetica,Arial,sans-serif" font-size="92" font-weight="800" fill="#fff">LaraSelector</text><text x="90" y="400" font-family="Helvetica,Arial,sans-serif" font-size="38" fill="#9a9aa6">Click in the browser. Land in your code.</text><text x="90" y="540" font-family="Helvetica,Arial,sans-serif" font-size="28" fill="#e8432e">composer require --dev mhmdelbadry74/laraselector-laravel</text></svg>`
+await sharp(Buffer.from(svg)).png().toFile('public/og.png')

@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {"dev": "vitepress dev", "build": "vitepress build", "preview": "vitepress preview", "assets": "node scripts/og.mjs"},
+  "devDependencies": {"vitepress": "^1.6.3", "sharp": "^0.33.5"}
+}
