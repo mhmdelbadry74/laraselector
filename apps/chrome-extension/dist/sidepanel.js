@@ -77,15 +77,21 @@ async function connect() {
   els.grant.hidden = true;
   state = {supported: false, active: false, heat: false};
   setView(null);
-  if (!tab || !hostOf(tab)) { setStatus('warn', 'Not a web page'); showAlert('Open a local Laravel page', 'Switch to the tab running your app, then use Select.'); return renderControls(); }
-  origin = hostOf(tab);
+  if (!tab) { setStatus('warn', 'No tab'); showAlert('No active tab', 'Click a tab with your Laravel app, then use Select.'); return renderControls(); }
+  // tab.url is hidden until the extension has access to the tab (e.g. when the panel was opened from
+  // Chrome's own side-panel menu instead of the LaraSelector toolbar icon).
+  if (tab.url && !hostOf(tab)) { setStatus('warn', 'Not a web page'); showAlert('Open a local Laravel page', 'This tab is not a web page. Switch to the tab running your app.'); return renderControls(); }
+  origin = tab.url ? hostOf(tab) : null;
   let r = await send('status');
   if (!r) {
     try { await inject(); r = await send('status'); }
     catch {
       setStatus('bad', 'Needs access');
       els.grant.hidden = false;
-      showAlert('LaraSelector needs access to this tab', 'Click the toolbar icon on this tab once, or allow it for this site.', 'Allow on this site', grant);
+      showAlert('LaraSelector needs access to this tab',
+        origin ? 'Click the toolbar icon on this tab once, or allow it for this site.'
+          : 'Chrome hides this tab from the extension when the panel is opened from its side-panel menu. Click the LaraSelector toolbar icon on this tab, or allow web pages once.',
+        origin ? 'Allow on this site' : 'Allow on web pages', grant);
       return renderControls();
     }
   }
@@ -98,8 +104,9 @@ async function connect() {
 }
 
 async function grant() {
-  const ok = await chrome.permissions.request({origins: [origin + '/*']}).catch(() => false);
-  if (ok) connect();
+  const origins = origin ? [origin + '/*'] : ['http://*/*', 'https://*/*'];
+  const ok = await chrome.permissions.request({origins}).catch(() => false);
+  if (ok) { await loadTab(); }
 }
 els.grant.onclick = grant;
 
@@ -116,11 +123,13 @@ $('dclose').onclick = () => rpc('closeView').catch(() => setView(null));
 
 async function loadTab() {
   [tab] = await chrome.tabs.query({active: true, currentWindow: true});
-  if (tab) {
-    const key = 'hostRoot:' + (hostOf(tab) || '');
+  const o = tab?.url ? hostOf(tab) : null;
+  els.root.disabled = !o;
+  if (o) {
+    const key = 'hostRoot:' + o;
     els.root.value = (await chrome.storage.local.get(key))[key] || '';
     els.root.onchange = () => chrome.storage.local.set({[key]: els.root.value.trim()});
-  }
+  } else els.root.value = '';
   connect();
 }
 chrome.tabs.onActivated.addListener(loadTab);
